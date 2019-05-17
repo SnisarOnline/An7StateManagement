@@ -1,0 +1,22 @@
+<header>
+  <h3>Задание на изучение NgRx из библиотеки Angular </h3>
+
+  <ol>
+    <li>верхний пишет всем</li>
+    <li>все пишут верхнему.</li>
+    <li>нижние немогут писать друг другу, кроме верхнего</li>
+  </ol>
+
+</header>
+
+<main>
+
+    <project-chief class="chief" ></project-chief>
+
+    <div class="list-subordinate" >
+      <project-subordinate *ngFor="let person of humanity" [person]="person" ></project-subordinate>
+    </div>
+
+</main>
+
+<footer> // </footer>

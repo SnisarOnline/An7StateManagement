@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.styl']
 })
 export class AppComponent {
-  title = 'StateManagement';
+  title = 'Beginning Study An7 StateManagement';
+  constructor() {
+    console.log( 'start AppComponent' );
+  }
 }
