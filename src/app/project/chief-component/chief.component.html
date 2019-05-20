@@ -1,3 +1,4 @@
+<!--
 <mat-card >
 
   <mat-card-header>
@@ -9,3 +10,13 @@
   </mat-card-content>
 
 </mat-card>
+todo:5
+-->
+
+<button (click)="increment('increment')">Increment</button>
+
+<div>Current Count: {{ count$ | async }}</div>
+
+<button (click)="decrement('Decrement')">Decrement</button>
+
+<button (click)="reset('Reset Counter')">Reset Counter</button>
