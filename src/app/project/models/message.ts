@@ -1,5 +1,9 @@
 export class Message {
   id: string;
   text: string;
-  typing: boolean;
+
+  constructor(id: string, text: string) {
+    this.id = id;
+    this.text = text;
+  }
 }

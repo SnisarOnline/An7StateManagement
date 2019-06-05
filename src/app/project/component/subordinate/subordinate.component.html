@@ -1,0 +1,23 @@
+<mat-card [formGroup]="personGroup">
+
+  <mat-card-header>
+    <mat-card-title> subordinate works!!</mat-card-title>
+    <mat-card-subtitle>
+      <span> id: <input formControlName="id" type="text" /> </span>,
+      <span> typing: ToDo </span>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-form-field style="width: 100%" >
+      <input matInput placeholder="User text"  formControlName="text" type="text" (keydown.enter)="messageAdd()" />
+    </mat-form-field>
+
+    <div *ngIf="(chiefMessage$ | async).id"> answer from <b>chief</b>:
+      <p>id:{{(chiefMessage$ | async).id}} </p>
+      <p>said: {{(chiefMessage$ | async).text}} </p>
+    </div>
+
+  </mat-card-content>
+
+</mat-card>

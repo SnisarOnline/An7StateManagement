@@ -3,7 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProjectComponent } from './project.component';
 
 const routes: Routes = [
-  {path: 'project', component: ProjectComponent},
+  {
+    path: 'project',
+    component: ProjectComponent
+  },
 ];
 
 @NgModule({
@@ -12,6 +15,6 @@ const routes: Routes = [
 })
 export class ProjectRoutingModule {
   constructor() {
-    console.log( '- project routing' );
+    console.log( '- project Routing' );
   }
 }

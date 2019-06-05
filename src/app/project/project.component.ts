@@ -16,11 +16,10 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit() {
     this.humanity = [
-      {text: '1111', id: '1111', typing: false},
-      {text: '2222', id: '2222', typing: false},
-      {text: '3333', id: '3333', typing: false},
-      {text: '4444', id: '4444', typing: false}
+      {text: '1111', id: '1111'},
+      {text: '2222', id: '2222'},
+      {text: '3333', id: '3333'},
+      {text: '4444', id: '4444'}
     ];
-
   }
 }

@@ -1,0 +1,41 @@
+<mat-card [formGroup]="chiefGroup">
+
+  <mat-card-header>
+    <mat-card-title>chief works!</mat-card-title>
+    <mat-card-subtitle>
+      <span> id: <input formControlName="id" type="text" /> </span>,
+      <span> typing: ToDo </span>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+
+  <mat-card-content >
+    <mat-form-field style="width: 100%" >
+      <input matInput placeholder="Chief text"  formControlName="text" type="text" (keydown.enter)="messageAdd()" />
+    </mat-form-field>
+
+
+
+    <div *ngIf="(subordinateMessage$ | async).length > 0"> answer from <b>subordinate</b>:
+      <p *ngFor="let mess of subordinateMessage$ | async">
+        <span>id:{{mess.id}} </span>
+        <span>said: {{mess.text}} </span>
+      </p>
+    </div>
+
+
+  </mat-card-content>
+
+
+
+
+
+
+  <!--<button (click)="messageAdd('Add')">message Add</button>-->
+  <!--<button (click)="messageAdd('Add')">message Add</button>-->
+  <!--<div>Current Count: {{ (count$ | async).allMessage }}</div>-->
+  <!--<button (click)="messageRemove('Add')">message Remove</button>-->
+  <!--<button (click)="messageChange('Change')"> message Change </button>-->
+
+
+</mat-card>

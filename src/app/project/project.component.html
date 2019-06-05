@@ -9,15 +9,20 @@
 
 </header>
 
+
 <main>
 
     <project-chief class="chief" ></project-chief>
 
     <div class="list-subordinate" >
-      <project-subordinate *ngFor="let person of humanity" [person]="person" ></project-subordinate>
+      <project-subordinate
+        *ngFor="let person of humanity; index as asd"
+        [personalNumber]="asd"
+      ></project-subordinate>
     </div>
 
 </main>
+
 
 <footer>
   List text to reading:
