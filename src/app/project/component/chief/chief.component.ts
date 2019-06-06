@@ -4,8 +4,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { ChiefAdd } from '../../_store-ngRx/actions/message.action';
 import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {ChangeDetection} from '@angular/cli/lib/config/schema';
-import {filter, map} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {InterfaceState} from '../../_store-ngRx/reducers/message.reducers';
 
 @Component({
