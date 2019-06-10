@@ -32,7 +32,15 @@
     if you have a CLI 6+ version you can run `ng add @angular/material`
  
   2) [DevExtreme](https://js.devexpress.com/)<br>
-    
+     
+  3) angular-cli-ghpages
+  [NpmJs](https://www.npmjs.com/package/angular-cli-ghpages#installation--setup),
+  [Github](https://github.com/angular-schule/angular-cli-ghpages)
+  `npm i angular-cli-ghpages --save-dev`
   
 # Run Angular Client :
+  - `npm run start` 
+  - `ng serve`
+  
 # TODO :
+-------
