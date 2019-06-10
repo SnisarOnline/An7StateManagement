@@ -2,7 +2,7 @@
 
 > This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-Example: [Pages](https://snisaronline.github.io/StateManagement/project)
+Example: [Pages](https://snisaronline.github.io/An7StateManagement/project)
 
 # Guide :
   Консоль команды для Создание полностью независимого компонента :
