@@ -4,13 +4,16 @@
     <mat-card-title> subordinate works!!</mat-card-title>
     <mat-card-subtitle>
       <span> id: <input formControlName="id" id="userId" type="text" /> </span>,
-      <span> typing: ToDo </span>
+      <span> typing: {{(chiefTyping$ | async )[0]?.typing}} </span>
     </mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
     <mat-form-field style="width: 100%" >
-      <input matInput placeholder="User text"  formControlName="text" type="text" (keydown.enter)="messageAdd()" />
+      <input matInput placeholder="User text"  formControlName="text" type="text"
+             (keydown.enter)="messageAdd()"
+             (input)="onChange($event.target.value)"
+      />
     </mat-form-field>
 
     <div class="answer-from" *ngIf="(chiefMessage$ | async).id"> answer from <b>chief</b>:

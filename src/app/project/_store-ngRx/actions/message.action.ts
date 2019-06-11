@@ -33,15 +33,15 @@ export class SubordinateAdd implements Action {
 
 export class TypingStart implements Action {
   readonly type = TypingActionTypes.Start;
-  constructor(public payload: any) {
-    console.log( 'MessageAdd payload: ', payload );
+  constructor(public payload: {typing: string}) {
+    console.log( 'TypingStart payload: ', payload );
   }
 }
 
 export class TypingStop implements Action {
   readonly type = TypingActionTypes.Stop;
-  constructor(public payload: any) {
-    console.log( 'MessageAdd payload: ', payload );
+  constructor(public payload: {typing: string}) {
+    console.log( 'TypingStop payload: ', payload );
   }
 }
 

@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Message} from '../../models/message';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {select, Store} from '@ngrx/store';
 import {InterfaceState} from '../../_store-ngRx/reducers/message.reducers';
-import {map} from 'rxjs/operators';
+import {debounceTime, map, takeLast, tap} from 'rxjs/operators';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {SubordinateAdd} from '../../_store-ngRx/actions/message.action';
+import {SubordinateAdd, TypingStart, TypingStop} from '../../_store-ngRx/actions/message.action';
 
 @Component({
   selector: 'project-subordinate',
@@ -18,6 +18,8 @@ export class SubordinateComponent implements OnInit {
 
   person: Message;
   chiefMessage$: Observable<Message>;
+  TypingInput$ = new Subject<any>();
+  chiefTyping$: Observable<{ typing: string }[]>;
 
   personGroup: FormGroup = new FormGroup({
     id: new FormControl('FormControl id', [Validators.required]),
@@ -32,11 +34,23 @@ export class SubordinateComponent implements OnInit {
     this.person = { id: 'person_id ' + this.personalNumber, text: 'person_text' };
     this.personGroup.patchValue( this.person );
 
+    // todo: Обьеденить подписки "projectStore"
     this.chiefMessage$ = this.store.pipe(
       select('projectStore'),
       map( ( state: InterfaceState) => state.chiefMessage )
     );
 
+    this.chiefTyping$ = this.store.pipe(
+      select('projectStore'),
+      map( ( state: InterfaceState) => state.events ),
+    );
+
+
+    this.TypingInput$
+      .pipe(debounceTime(1000))
+      .subscribe((next) => {
+        this.store.dispatch( new TypingStop({typing: this.personGroup.value.id} ) );
+      } );
   }
 
 
@@ -44,4 +58,10 @@ export class SubordinateComponent implements OnInit {
     const newMessageOnStore = new Message(this.personGroup.value.id, this.personGroup.value.text);
     this.store.dispatch(new SubordinateAdd(newMessageOnStore));
   }
+
+  onChange(valueInput: string) {
+    this.store.dispatch( new TypingStart({typing: this.personGroup.value.id} ) );
+    this.TypingInput$.next();
+  }
+
 }

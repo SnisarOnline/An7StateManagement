@@ -11,7 +11,14 @@
 
   <mat-card-content >
     <mat-form-field style="width: 100%" >
-      <input matInput placeholder="Chief text"  formControlName="text" type="text" (keydown.enter)="messageAdd()" />
+<!--       тут нам нада создать поток который передадим в стейт менеджер -->
+      <input matInput placeholder="Chief text"  formControlName="text" type="text"
+             (keydown.enter)="messageAdd()"
+             (input)="onChange($event.target.value)"
+      />
+<!--      (input)="onChange($event.target.value)"-->
+<!--      (keypress)="onChange($event.target.value)"-->
+
     </mat-form-field>
 
 
@@ -25,17 +32,6 @@
 
 
   </mat-card-content>
-
-
-
-
-
-
-  <!--<button (click)="messageAdd('Add')">message Add</button>-->
-  <!--<button (click)="messageAdd('Add')">message Add</button>-->
-  <!--<div>Current Count: {{ (count$ | async).allMessage }}</div>-->
-  <!--<button (click)="messageRemove('Add')">message Remove</button>-->
-  <!--<button (click)="messageChange('Change')"> message Change </button>-->
 
 
 </mat-card>
